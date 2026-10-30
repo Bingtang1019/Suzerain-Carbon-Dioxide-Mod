@@ -1,0 +1,156 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\dell\\Desktop\\Suzerain\\Oikonomia\\src\\OI.Probe\\OI.Probe.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\dell\\Desktop\\Suzerain\\Oikonomia\\src\\OI.Probe\\OI.Probe.csproj": {
+      "version": "0.3.4",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dell\\Desktop\\Suzerain\\Oikonomia\\src\\OI.Probe\\OI.Probe.csproj",
+        "projectName": "OI.Probe",
+        "projectPath": "C:\\Users\\dell\\Desktop\\Suzerain\\Oikonomia\\src\\OI.Probe\\OI.Probe.csproj",
+        "packagesPath": "C:\\Users\\dell\\Desktop\\Suzerain\\Oikonomia\\src\\OI.Probe\\obj\\packages",
+        "outputPath": "C:\\Users\\dell\\Desktop\\Suzerain\\Oikonomia\\src\\OI.Probe\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dell\\Desktop\\Suzerain\\_shared\\Suzerain.PatchBus\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Users\\dell\\.nuget\\packages": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\dell\\Desktop\\Suzerain\\_shared\\Suzerain.PatchBus\\Suzerain.PatchBus.csproj": {
+                "projectPath": "C:\\Users\\dell\\Desktop\\Suzerain\\_shared\\Suzerain.PatchBus\\Suzerain.PatchBus.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\dell\\Desktop\\Suzerain\\.dotnet8\\sdk\\8.0.426\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dell\\Desktop\\Suzerain\\_shared\\Suzerain.PatchBus\\Suzerain.PatchBus.csproj": {
+      "version": "0.1.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dell\\Desktop\\Suzerain\\_shared\\Suzerain.PatchBus\\Suzerain.PatchBus.csproj",
+        "projectName": "Suzerain.PatchBus",
+        "projectPath": "C:\\Users\\dell\\Desktop\\Suzerain\\_shared\\Suzerain.PatchBus\\Suzerain.PatchBus.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dell\\Desktop\\Suzerain\\_shared\\Suzerain.PatchBus\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dell\\Desktop\\Suzerain\\_shared\\Suzerain.PatchBus\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Users\\dell\\.nuget\\packages": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\dell\\Desktop\\Suzerain\\.dotnet8\\sdk\\8.0.426\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Oikonomia/2.11.5": {
+        "runtime": {
+          "Oikonomia.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Oikonomia/2.11.5": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,17 @@
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\bin\Release\net6.0\InteropContractTest.exe
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\bin\Release\net6.0\InteropContractTest.deps.json
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\bin\Release\net6.0\InteropContractTest.runtimeconfig.json
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\bin\Release\net6.0\InteropContractTest.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\bin\Release\net6.0\InteropContractTest.pdb
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\bin\Release\net6.0\Mono.Cecil.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\obj\Release\net6.0\InteropContractTest.csproj.AssemblyReference.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\obj\Release\net6.0\InteropContractTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\obj\Release\net6.0\InteropContractTest.AssemblyInfoInputs.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\obj\Release\net6.0\InteropContractTest.AssemblyInfo.cs
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\obj\Release\net6.0\InteropContractTest.csproj.CoreCompileInputs.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\obj\Release\net6.0\InteropContractTest.csproj.CopyComplete
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\obj\Release\net6.0\InteropContractTest.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\obj\Release\net6.0\refint\InteropContractTest.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\obj\Release\net6.0\InteropContractTest.pdb
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\obj\Release\net6.0\InteropContractTest.genruntimeconfig.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InteropContractTest\obj\Release\net6.0\ref\InteropContractTest.dll

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "RG/ZaCqHRUg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dell\\Desktop\\Suzerain\\Oikonomia\\src\\OI.Probe\\OI.Probe.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dell\\Desktop\\Suzerain\\Oikonomia\\src\\OI.Probe\\obj\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\dell\\Desktop\\Suzerain\\Oikonomia\\src\\OI.Probe\\obj\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\dell\\Desktop\\Suzerain\\Oikonomia\\src\\OI.Probe\\obj\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512"
+  ],
+  "logs": []
+}

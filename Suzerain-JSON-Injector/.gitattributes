@@ -1,0 +1,7 @@
+# .gitattributes —— 仅声明"不做 EOL 转换"
+# ★ 2026-10-06 用户裁定（iii）：只留 `* -text`，让【仓库对象】向【工作区】对齐。
+#   背景：原文声明了 `text eol=lf`，使已跟踪的 CRLF 文件在 checkout 时被静默改成 LF，
+#   导致同一文件在"本机工作区"与"fresh clone"下【有两个哈希】。
+#   而 `* -text` 本身【已经挡住 core.autocrlf】⇒ 那些 `eol=lf` 行是冗余的，且制造该隐患。
+# ★ 本文件只声明 EOL，不做关键字展开、不挂 filter —— 避免引入新的静默字节变化。
+* -text

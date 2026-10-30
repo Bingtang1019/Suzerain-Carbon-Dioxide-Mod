@@ -1,0 +1,13 @@
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\bin\Release\Oikonomia.deps.json
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\bin\Release\Oikonomia.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\bin\Release\Oikonomia.pdb
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\obj\Release\Oikonomia.csproj.AssemblyReference.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\obj\Release\Oikonomia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\obj\Release\Oikonomia.AssemblyInfoInputs.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\obj\Release\Oikonomia.AssemblyInfo.cs
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\obj\Release\Oikonomia.csproj.CoreCompileInputs.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\obj\Release\Oikonomia.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\obj\Release\refint\Oikonomia.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\obj\Release\Oikonomia.pdb
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\obj\Release\ref\Oikonomia.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oikonomia\obj\Release\VersionInfo.g.cs

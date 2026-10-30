@@ -1,0 +1,12 @@
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\bin\Release\RealPresident.deps.json
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\bin\Release\RealPresident.dll
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\bin\Release\RealPresident.pdb
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\obj\Release\RealPresident.csproj.AssemblyReference.cache
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\obj\Release\RealPresident.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\obj\Release\RealPresident.AssemblyInfoInputs.cache
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\obj\Release\RealPresident.AssemblyInfo.cs
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\obj\Release\RealPresident.csproj.CoreCompileInputs.cache
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\obj\Release\RealPresident.dll
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\obj\Release\refint\RealPresident.dll
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\obj\Release\RealPresident.pdb
+C:\Users\dell\Desktop\Suzerain\RealPresident\src\RealPresident\obj\Release\ref\RealPresident.dll

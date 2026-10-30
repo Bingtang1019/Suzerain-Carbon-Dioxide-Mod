@@ -1,0 +1,15 @@
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\bin\Release\OI.Probe.deps.json
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\bin\Release\OI.Probe.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\bin\Release\OI.Probe.pdb
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\obj\Release\OI.Probe.csproj.AssemblyReference.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\obj\Release\OI.Probe.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\obj\Release\OI.Probe.AssemblyInfoInputs.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\obj\Release\OI.Probe.AssemblyInfo.cs
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\obj\Release\OI.Probe.csproj.CoreCompileInputs.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\obj\Release\OI.Probe.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\obj\Release\refint\OI.Probe.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\obj\Release\OI.Probe.pdb
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\obj\Release\ref\OI.Probe.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\bin\Release\Suzerain.PatchBus.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\bin\Release\Suzerain.PatchBus.pdb
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\OI.Probe\obj\Release\OI.Probe.csproj.Up2Date

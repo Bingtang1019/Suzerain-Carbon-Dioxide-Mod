@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <AssemblyName>BudgetQuoteTest</AssemblyName>
+    <RootNamespace>BudgetQuoteTest</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="..\..\src\Oikonomia\BudgetQuote.cs" />
+    <Compile Include="..\..\src\Oikonomia\BudgetQuoteData.Generated.cs" />
+    <Compile Include="..\..\src\Oikonomia\QuoteAnimation.cs" />
+    <Compile Include="..\..\src\Oikonomia\EmergencyQuoteData.Generated.cs" />
+    <Compile Include="..\..\src\Oikonomia\EmergencyQuoteSelector.cs" />
+  </ItemGroup>
+</Project>

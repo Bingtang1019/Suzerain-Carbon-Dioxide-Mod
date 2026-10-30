@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <AssemblyName>InGameDetailFormatTest</AssemblyName>
+    <RootNamespace>InGameDetailFormatTest</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Program.Frame.cs" />
+    
+    <Compile Include="Program.Rizia.cs" />
+    
+    <Compile Include="Program.RiziaReal.cs" />
+    
+    <Compile Include="Program.Diag.cs" />
+    
+    <Compile Include="Program.Truncation.cs" />
+    
+    <Compile Include="..\..\src\Oikonomia\InGameDetailFormat.cs" />
+    
+    <Compile Include="..\..\src\Oikonomia\InGameDetailFormat.Rizia.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    
+    <Content Include="baseline-278.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

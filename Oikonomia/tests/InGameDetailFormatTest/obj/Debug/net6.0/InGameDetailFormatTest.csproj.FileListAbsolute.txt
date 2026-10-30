@@ -1,0 +1,16 @@
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\bin\Debug\net6.0\baseline-278.txt
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\bin\Debug\net6.0\InGameDetailFormatTest.exe
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\bin\Debug\net6.0\InGameDetailFormatTest.deps.json
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\bin\Debug\net6.0\InGameDetailFormatTest.runtimeconfig.json
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\bin\Debug\net6.0\InGameDetailFormatTest.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\bin\Debug\net6.0\InGameDetailFormatTest.pdb
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\obj\Debug\net6.0\InGameDetailFormatTest.csproj.AssemblyReference.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\obj\Debug\net6.0\InGameDetailFormatTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\obj\Debug\net6.0\InGameDetailFormatTest.AssemblyInfoInputs.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\obj\Debug\net6.0\InGameDetailFormatTest.AssemblyInfo.cs
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\obj\Debug\net6.0\InGameDetailFormatTest.csproj.CoreCompileInputs.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\obj\Debug\net6.0\InGameDetailFormatTest.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\obj\Debug\net6.0\refint\InGameDetailFormatTest.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\obj\Debug\net6.0\InGameDetailFormatTest.pdb
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\obj\Debug\net6.0\InGameDetailFormatTest.genruntimeconfig.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\tests\InGameDetailFormatTest\obj\Debug\net6.0\ref\InGameDetailFormatTest.dll

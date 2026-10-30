@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Oikonomia</AssemblyName>
+    <RootNamespace>Oikonomia</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <Version>2.11.5</Version>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <RestorePackagesPath>$(MSBuildProjectDirectory)\obj\packages</RestorePackagesPath>
+
+    <GameDir Condition="'$(GameDir)' == ''">D:\Program Files (x86)\Steam\steamapps\common\Suzerain</GameDir>
+    <BepInExCoreDir>$(GameDir)\BepInEx\core</BepInExCoreDir>
+    <DeployDir>$(GameDir)\BepInEx\plugins</DeployDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BepInEx.Core">
+      <HintPath>$(BepInExCoreDir)\BepInEx.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BepInEx.Unity.IL2CPP">
+      <HintPath>$(BepInExCoreDir)\BepInEx.Unity.IL2CPP.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BepInEx.Unity.Common">
+      <HintPath>$(BepInExCoreDir)\BepInEx.Unity.Common.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(BepInExCoreDir)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Il2CppInterop.Runtime">
+      <HintPath>$(BepInExCoreDir)\Il2CppInterop.Runtime.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  
+  <Target Name="GenerateVersionInfo" BeforeTargets="CoreCompile">
+    <PropertyGroup>
+      <_VersionInfoFile>$(IntermediateOutputPath)VersionInfo.g.cs</_VersionInfoFile>
+    </PropertyGroup>
+    <WriteLinesToFile File="$(_VersionInfoFile)" Overwrite="true" Encoding="UTF-8"
+      Lines="// &lt;auto-generated&gt; 由 Oikonomia.csproj 的 &lt;Version&gt; 生成 —— 请勿手改%0A%0Dnamespace Oikonomia { internal static class VersionInfo { internal const string PluginVersion = &quot;$(Version)&quot;%3B } }" />
+    <ItemGroup>
+      <Compile Include="$(_VersionInfoFile)" />
+      <FileWrites Include="$(_VersionInfoFile)" />
+    </ItemGroup>
+    <Message Importance="high" Text="[G1] 生成 VersionInfo.g.cs ⇒ $(Version)" />
+  </Target>
+  <Target Name="DeployPlugin" AfterTargets="Build">
+    <MakeDir Directories="$(DeployDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(DeployDir)" />
+    <Message Importance="high" Text="[部署] $(TargetFileName) -&gt; $(DeployDir)" />
+  </Target>
+
+</Project>

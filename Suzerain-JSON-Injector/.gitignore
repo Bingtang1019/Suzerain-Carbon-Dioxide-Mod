@@ -1,0 +1,57 @@
+# ============================================================
+# Suzerain-JSON Injector (.gitignore)
+# 原则：源码 / 文档 / 脚本入库；
+#       构建产物（含 SuzerainGUI.exe）、打包 zip、日志、
+#       APK 解包出的大二进制一律不入库。
+# ============================================================
+
+# ---------- 通用构建产物 ----------
+bin/
+obj/
+dist/
+_staging/
+.vs/
+*.user
+*.suo
+
+# ---------- 打包产物 / 生成物 / 日志 ----------
+# Suzerain-JSON Injector.zip（约 287 KB 打包产物）
+*.zip
+# swap.log（源码切换操作的日志）
+*.log
+# SuzerainGUI.exe（约 170 KB，构建产物）、bin/SuzerainTrainer.exe
+*.exe
+
+# ---------- 游戏存档备份（若出现）----------
+_saves-backup-*/
+
+# ---------- APK 解包产物 ----------
+# apk_inspect/assets/bin/Data/Managed/Metadata/global-metadata.dat
+#   → 17.5 MB IL2CPP 元数据二进制，可由游戏 APK 重新解包得到，不入库。
+# 注：该路径已被上面的 bin/ 规则覆盖，此处显式声明以免日后误读。
+# ★ 2026-10-06 现状（Lead 裁决）：该二进制【已不在本仓】，现位于共享区
+#   `_shared\game-assets\apk_inspect\assets\bin\Data\Managed\Metadata\global-metadata.dat`
+#   （17,534,604 B）。本仓只保留 `apk_inspect/AndroidManifest.xml`。
+#   ⇒ 下面 `apk_inspect/assets/bin/` 这条**现为防御性规则**：万一有人再把 APK 解包进本仓，
+#     它仍能挡住这 17.5 MB 二进制 ⇒ ★ 保留，勿删（做到"注释与事实一致"且不丢防护）。
+# apk_inspect/AndroidManifest.xml（约 49 KB 解包文本）保留入库。
+apk_inspect/assets/bin/
+
+# ---------- Android (Gradle) 构建产物 ----------
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+*.apk
+*.keystore
+
+# ============================================================
+# 明确入库的内容（勿删）：
+#   src/**/*.cs            含 src/_split-source/SuzerainGUI.mono.cs（约 186 KB 源码）
+#   src/app.manifest
+#   android/**/*.gradle  android/app/src/**  AndroidManifest.xml（Gradle 工程源码）
+#   apk_inspect/AndroidManifest.xml（解包文本参考）
+#   docs/**  README.txt
+#   tools/*.js  tools/*.ps1  tools/运行自检.bat（脚本，必须入库）
+#   tools/testdata/t1.json
+# ============================================================

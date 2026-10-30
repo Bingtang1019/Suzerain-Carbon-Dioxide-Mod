@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "OI.Probe/0.3.4": {
+        "dependencies": {
+          "Suzerain.PatchBus": "0.1.0"
+        },
+        "runtime": {
+          "OI.Probe.dll": {}
+        }
+      },
+      "Suzerain.PatchBus/0.1.0": {
+        "runtime": {
+          "Suzerain.PatchBus.dll": {
+            "assemblyVersion": "0.1.0",
+            "fileVersion": "0.1.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OI.Probe/0.3.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Suzerain.PatchBus/0.1.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

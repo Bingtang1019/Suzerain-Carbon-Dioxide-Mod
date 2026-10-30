@@ -1,0 +1,12 @@
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\obj\Release\Oi.Verify.csproj.AssemblyReference.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\obj\Release\Oi.Verify.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\obj\Release\Oi.Verify.AssemblyInfoInputs.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\obj\Release\Oi.Verify.AssemblyInfo.cs
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\obj\Release\Oi.Verify.csproj.CoreCompileInputs.cache
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\bin\Release\Oi.Verify.deps.json
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\bin\Release\Oi.Verify.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\bin\Release\Oi.Verify.pdb
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\obj\Release\Oi.Verify.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\obj\Release\refint\Oi.Verify.dll
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\obj\Release\Oi.Verify.pdb
+C:\Users\dell\Desktop\Suzerain\Oikonomia\src\Oi.Verify\obj\Release\ref\Oi.Verify.dll

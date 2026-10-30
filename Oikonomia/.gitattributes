@@ -1,0 +1,36 @@
+# .gitattributes —— EOL 政策（2026-10-06 · 用户批准）
+# 背景：系统级 core.autocrlf=true 会在 checkout 时静默改变字节，导致
+#   ① 哈希类工具对"完全正确的副本"假报分叉（MANIFEST 用原始字节哈希）
+#   ② 无法分辨真实内容改动与 EOL 噪声
+# 政策：* 默认不转换（覆盖 autocrlf）；文本类显式统一 LF；二进制永不动。
+# ★ 本文件只声明 EOL，不做关键字展开（ident/export-subst）、不挂 filter —— 避免引入新的静默字节变化。
+
+* -text
+
+# ── 文本类：统一 LF ──
+*.ps1        text eol=lf
+*.psm1       text eol=lf
+*.bat        text eol=lf
+*.cmd        text eol=lf
+*.js         text eol=lf
+*.mjs        text eol=lf
+*.ts         text eol=lf
+*.cs         text eol=lf
+*.csproj     text eol=lf
+*.sln        text eol=lf
+*.json       text eol=lf
+*.jsonl      text eol=lf
+*.md         text eol=lf
+*.txt        text eol=lf
+*.tsv        text eol=lf
+*.csv        text eol=lf
+*.yml        text eol=lf
+*.yaml       text eol=lf
+*.xml        text eol=lf
+*.config     text eol=lf
+*.cfg        text eol=lf
+*.ini        text eol=lf
+*.sh         text eol=lf
+*.py         text eol=lf
+.gitignore   text eol=lf
+.gitattributes text eol=lf
