@@ -1,19 +1,76 @@
 # Suzerain: Carbon-Dioxide-Mod
 
-A source-and-build snapshot of two Suzerain mod projects:
+A source-and-build snapshot of two Suzerain projects:
 
-- **Oikonomia** — economy / budget / decree related BepInEx mod, probes and tests
-- **Suzerain-JSON Injector** — JSON save/data injector GUI and its helper tools
+- **Oikonomia** — an in-game BepInEx gameplay mod (economy rules + decree changes)
+- **Suzerain-JSON Injector** — an external save editor / trainer GUI and CLI
 
-This repository is a **distribution/reference snapshot**, not the upstream
-development repository. Source comments were stripped and original docs were
-not copied.
+This is a distribution/reference snapshot, not the upstream development
+repository. Source comments were stripped and the original docs were not
+copied. This README is the repository guide.
 
 ---
 
 ## English
 
-### What is in this repository
+## What these projects actually do
+
+### Oikonomia — in-game gameplay mod
+
+Oikonomia is a **BepInEx 6 (IL2CPP) plugin** for Suzerain. It changes rules
+through the game's own variable system; it does not replace game files.
+
+**1. Removes the presidential decree cap**
+
+- Vanilla limits a run to **3 decrees**.
+- Oikonomia makes the limit configurable; default **500** (effectively
+  unlimited).
+- Also applies to the parliamentary acts panel, with an optional exclusion list.
+- Hides the now-meaningless page dots and the hard-coded “you may choose 3”
+  subtitle.
+- Config changes hot-reload in about one second.
+
+**2. Adds end-of-turn economy settlements**
+
+Every turn, Oikonomia adjusts the government budget from the current economy
+state and situation tags:
+
+| Mechanism | Effect |
+|---|---|
+| Economy indicator (ED) | Dangerous **−2**, Unstable **−1**, Stable **0**, Growing **+1** |
+| Regional situation tiers | Each region tier up/down gives **±1** (two tiers = ±2) |
+| Tourism | Booming **+1**, Average **0**, Severe recession **−1** |
+| Tax | Tax efficiency **+1 per turn**; tax avoidance turning on gives a one-time **−1**; tax evasion has no penalty |
+| Growth situations | Each growth-related situation turning on gives **+1 once** |
+
+It refreshes the budget HUD after writing, and rebuilds its baseline after
+loading a save/new campaign so tier changes are not double-counted.
+
+**3. Optional Turn 1 “both projects” feature**
+
+There is an optional `[T1]` feature that adds a third choice to the Turn 1
+infrastructure decision: fund **both** the H-3 highway and the L-1 railway.
+It is disabled by default in the shipped config.
+
+### Suzerain-JSON Injector — external save editor
+
+This is **not an in-game mod**. It is a Windows GUI/CLI trainer that edits a
+Suzerain save file and writes it back, with automatic `.bak` backups.
+
+Main capabilities:
+
+- Base-game resources, political spectrum, turn/vote values and custom variables;
+- 370 diplomacy variables (relations, trade, alliances, sanctions, war);
+- 559 character relationship/opinion values;
+- Event-chain flags and presidential-decree conditions;
+- Rizia DLC resources (Authority / Budget / Energy), HUD caps and 110+ modifiers;
+- Browse all variables and entity fields present in the selected save;
+- Search, favorites, edit history and automatic Active-save synchronization.
+
+Typical flow: run `SuzerainGUI.exe` → choose save → edit values → **Save
+changes** (automatic `.bak`) → reload the save in game.
+
+## Repository contents
 
 ```text
 .
@@ -23,91 +80,158 @@ not copied.
 │  │  ├─ Oikonomia/          main BepInEx plugin (Oikonomia.dll)
 │  │  ├─ OI.Probe/           runtime probe / diagnostics plugin
 │  │  └─ Oi.Verify/          verification helper plugin
-│  ├─ tests/                 test projects for economy, budget, approvals, etc.
-│  ├─ tools/                 build, packaging, checking and verification scripts
+│  ├─ tests/                 economy, budget, approval and format tests
+│  ├─ tools/                 build, deploy, packaging and checking scripts
 │  ├─ bin/ obj/              build outputs copied from the original projects
 │  ├─ .gitignore
 │  └─ .gitattributes
 ├─ Suzerain-JSON-Injector/
-│  ├─ src/                   injector source: core, bridges, GUI pages
-│  ├─ tools/                 JS/PowerShell helper and self-check tools
+│  ├─ src/                   GUI, core logic and bridge integrations
+│  ├─ tools/                 JS/PowerShell self-check and contract tools
 │  ├─ bin/                   trainer executables
-│  ├─ SuzerainGUI*.exe       prebuilt injector GUI executables
+│  ├─ SuzerainGUI*.exe       prebuilt GUI executables
 │  ├─ .gitignore
 │  └─ .gitattributes
 └─ _shared/
    └─ Suzerain.PatchBus/     shared Harmony patch bus used by OI.Probe
 ```
 
+## How to use
+
 ### Oikonomia
 
-The main project is `Oikonomia/src/Oikonomia/`.
+1. Install BepInEx 6 (IL2CPP) for Suzerain.
+2. Copy `Oikonomia.dll` to `<game>\BepInEx\plugins\`.
+3. Launch the game once; edit
+   `<game>\BepInEx\config\com.dell.suzerain.oikonomia.cfg`.
+4. Key defaults:
 
-- `Oikonomia.dll` is the BepInEx plugin.
-- `OI.Probe` is a diagnostic / probe plugin; it observes game methods and
-  economy values without taking over normal gameplay.
-- `Oi.Verify` contains verification helpers.
-- `tests/` contains standalone test projects for the economy and budget logic.
-- `tools/` contains build, deploy, release, log-watching and verification
-  scripts.
-- `bin/` and `obj/` are included build artifacts. Restore caches under
-  `obj/packages` were intentionally excluded.
+```ini
+[General]
+Enabled = true
+MaxDecrees = 500
 
-Typical build:
+[Economy]
+Enabled = true
+
+[T1]
+Enabled = false
+```
+
+### JSON Injector
+
+- Run `Suzerain-JSON-Injector\SuzerainGUI.exe`, or
+  `Suzerain-JSON-Injector\bin\SuzerainTrainer.exe` for the CLI.
+- Save location is normally:
+
+```text
+C:\Users\<user>\AppData\LocalLow\Torpor Games\Suzerain\
+```
+
+- The editor creates a `.bak` next to the save before writing.
+
+### Build Oikonomia
 
 ```powershell
 dotnet build Oikonomia/src/Oikonomia/Oikonomia.csproj -c Release
 ```
 
-The default game path is set inside the project file. Override it with:
+Default game path in the project file:
+
+```text
+D:\Program Files (x86)\Steam\steamapps\common\Suzerain
+```
+
+Override with:
 
 ```powershell
 -p:GameDir="D:\path\to\Suzerain"
 ```
 
-### Suzerain-JSON Injector
+The injector folder contains source and prebuilt executables. Its original
+standalone project file was not present in the source snapshot.
 
-This is the source and prebuilt form of the JSON injector / trainer GUI.
+## Included / excluded
 
-- `src/SuzerainGUI.*.cs` contains the GUI, core logic and bridge integrations.
-- `src/SuzerainTrainer.cs` and `TranslateDict.cs` contain the trainer logic and
-  translation dictionary.
-- `tools/` contains JavaScript and PowerShell helpers used for self-checks,
-  bridge contracts, path checks and test fixtures.
-- `bin/SuzerainTrainer.exe` and the root `SuzerainGUI*.exe` files are prebuilt
-  executables.
-- The original standalone project file was not present in the source snapshot;
-  use the included executables if you only need to run the tool.
+Included:
 
-### _shared/Suzerain.PatchBus
+- source with comments stripped;
+- `bin/` and `obj/` build outputs;
+- prebuilt injector executables;
+- this bilingual README.
 
-Small shared library used by `Oikonomia/src/OI.Probe`.
+Excluded:
 
-- `PatchBus.cs` provides the patch bus implementation.
-- `Suzerain.PatchBus.csproj` is the project file.
-- The OI.Probe project references this directory.
-
-### What is intentionally excluded
-
-- original `docs/` directories and documentation files;
+- original `docs/` and documentation files;
 - NuGet restore caches under `obj/packages`;
-- temporary `_out/`, `_staging/` and brainstorming directories;
-- game saves, credentials and personal data;
-- source comments (C#, PowerShell, JavaScript, batch and project files).
+- temporary `_out/`, `_staging/` folders;
+- game saves, credentials and personal data.
 
-### Notes
+## Notes
 
 - `bin/obj` files are copied as-is and may contain absolute paths from the
   original build machine.
-- The repository is a snapshot for reference and distribution; it is not an
-  official release channel.
+- This repository is a reference/distribution snapshot, not an official
+  release channel.
 - No game files are redistributed here.
 
 ---
 
 ## 中文
 
-### 这个仓库里有什么
+## 这两个项目实际是做什么的
+
+### Oikonomia —— 游戏内玩法模组
+
+Oikonomia 是 Suzerain 的 **BepInEx 6（IL2CPP）插件**，通过游戏自己的变量系统
+改规则，不替换游戏文件。
+
+**1. 解除总统令上限**
+
+- 原版一局最多签 **3** 个总统令；
+- 本模组把上限变成可配置，默认 **500**（等效无限）；
+- 同样作用于法案面板，可配置排除；
+- 隐藏原版底部“上限数量”的页码点位，以及写死的“最多选择 3 个”副标题；
+- 改配置约 1 秒热重载。
+
+**2. 每回合经济结算**
+
+每回合结束时，按当前经济状态和词条自动调整政府预算：
+
+| 机制 | 效果 |
+|---|---|
+| 经济指标 ED | 危险 **−2**、不稳定 **−1**、稳定 **0**、增长 **+1** |
+| 地区三档词条 | 每升/降一档 **±1**（跨两档 ±2） |
+| 旅游业 | 蓬勃发展 **+1**、平均 **0**、严重衰退 **−1** |
+| 税务 | 税务效率每回合 **+1**；避税由假变真一次性 **−1**；逃税不惩罚 |
+| 增长类词条 | 每个增长词条由假变真各 **+1**，只触发一次 |
+
+写入后会刷新预算 HUD；读档/新战役后会重建基线，避免跨存档误判升降。
+
+**3. 可选的 Turn 1“两个项目同时开工”**
+
+`[T1]` 是可选功能：在第一回合基础设施决策里增加第三项，让 H-3 公路和 L-1 高铁
+**同时开工**。发行配置里默认关闭。
+
+### Suzerain-JSON Injector —— 外部存档修改器
+
+它**不是游戏内模组**，而是一个 Windows GUI/CLI 修改器：读取 Suzerain 存档、修改
+数值后写回，写入前自动备份 `.bak`。
+
+主要能力：
+
+- 本体资源、政治光谱、回合/投票值、自定义变量；
+- 370 项外交变量（国家关系、贸易、联盟、制裁、战争）；
+- 559 项人物好感/舆论；
+- 事件链开关、总统令条件；
+- Rizia DLC 三大资源（权威/预算/能源）、HUD 上下限与 110+ 修正项；
+- 浏览当前存档里真实存在的全部变量和实体字段；
+- 搜索、收藏、修改历史、Active 存档自动同步。
+
+典型流程：运行 `SuzerainGUI.exe` → 选存档 → 改数值 → 点“保存修改”（自动 `.bak`）
+→ 回游戏重新读档。
+
+## 仓库内容
 
 ```text
 .
@@ -117,72 +241,93 @@ Small shared library used by `Oikonomia/src/OI.Probe`.
 │  │  ├─ Oikonomia/          主 BepInEx 插件（Oikonomia.dll）
 │  │  ├─ OI.Probe/           运行时探针 / 诊断插件
 │  │  └─ Oi.Verify/          验证辅助插件
-│  ├─ tests/                 经济、预算、审批等逻辑的测试工程
-│  ├─ tools/                 构建、打包、检查、日志与验证脚本
+│  ├─ tests/                 经济、预算、审批、格式测试
+│  ├─ tools/                 构建、部署、打包、检查脚本
 │  ├─ bin/ obj/              从原工程复制的构建产物
 │  ├─ .gitignore
 │  └─ .gitattributes
 ├─ Suzerain-JSON-Injector/
-│  ├─ src/                   修改器源码：核心、桥接、GUI 页面
-│  ├─ tools/                 JS / PowerShell 辅助与自检工具
+│  ├─ src/                   GUI、核心逻辑与桥接
+│  ├─ tools/                 JS/PowerShell 自检与契约工具
 │  ├─ bin/                   trainer 可执行文件
-│  ├─ SuzerainGUI*.exe       预编译修改器 GUI
+│  ├─ SuzerainGUI*.exe       预编译 GUI
 │  ├─ .gitignore
 │  └─ .gitattributes
 └─ _shared/
    └─ Suzerain.PatchBus/     OI.Probe 使用的共享 Harmony PatchBus
 ```
 
+## 怎么用
+
 ### Oikonomia
 
-主工程在 `Oikonomia/src/Oikonomia/`。
+1. 给 Suzerain 安装 BepInEx 6（IL2CPP）；
+2. 把 `Oikonomia.dll` 放进 `<游戏目录>\BepInEx\plugins\`；
+3. 启动一次游戏，编辑
+   `<游戏目录>\BepInEx\config\com.dell.suzerain.oikonomia.cfg`；
+4. 关键默认值：
 
-- `Oikonomia.dll` 是 BepInEx 插件本体；
-- `OI.Probe` 是运行时探针/诊断插件，只观察游戏方法和经济数值，不接管正常玩法；
-- `Oi.Verify` 是验证辅助工程；
-- `tests/` 是经济、预算等逻辑的独立测试工程；
-- `tools/` 包含构建、部署、打包、日志观察和验证脚本；
-- `bin/`、`obj/` 是构建产物；`obj/packages` 里的 NuGet 还原缓存已排除。
+```ini
+[General]
+Enabled = true
+MaxDecrees = 500
 
-常用构建命令：
+[Economy]
+Enabled = true
+
+[T1]
+Enabled = false
+```
+
+### JSON Injector
+
+- 运行 `Suzerain-JSON-Injector\SuzerainGUI.exe`；
+- 或用命令行版 `Suzerain-JSON-Injector\bin\SuzerainTrainer.exe`；
+- 存档通常在：
+
+```text
+C:\Users\<用户名>\AppData\LocalLow\Torpor Games\Suzerain\
+```
+
+- 写入前会自动生成同名 `.bak`。
+
+### 构建 Oikonomia
 
 ```powershell
 dotnet build Oikonomia/src/Oikonomia/Oikonomia.csproj -c Release
 ```
 
-工程文件里写了默认游戏路径，路径不同可以覆盖：
+工程默认游戏路径：
+
+```text
+D:\Program Files (x86)\Steam\steamapps\common\Suzerain
+```
+
+路径不同用：
 
 ```powershell
 -p:GameDir="D:\你的\Suzerain\路径"
 ```
 
-### Suzerain-JSON Injector
+修改器目录是源码 + 预编译 exe；原工程的独立项目文件不在源码快照里。
 
-这是 JSON 修改器 / trainer GUI 的源码与预编译版本。
+## 包含与排除
 
-- `src/SuzerainGUI.*.cs` 是 GUI、核心逻辑和桥接集成；
-- `src/SuzerainTrainer.cs`、`TranslateDict.cs` 是修改器逻辑与翻译词典；
-- `tools/` 是自检、桥协议、路径检查和测试夹具用的 JS / PowerShell 工具；
-- `bin/SuzerainTrainer.exe` 和根目录的 `SuzerainGUI*.exe` 是预编译程序；
-- 原工程的独立项目文件没有出现在源码快照中；只需要运行工具时直接用 exe。
+包含：
 
-### _shared/Suzerain.PatchBus
+- 已删注释的源码；
+- `bin/`、`obj/` 构建产物；
+- 修改器预编译 exe；
+- 本双语 README。
 
-`Oikonomia/src/OI.Probe` 使用的小型共享库。
+不包含：
 
-- `PatchBus.cs` 是 PatchBus 实现；
-- `Suzerain.PatchBus.csproj` 是工程文件；
-- OI.Probe 通过项目引用使用它。
-
-### 有意排除的内容
-
-- 原工程的 `docs/` 目录和文档文件；
+- 原工程 `docs/` 和文档文件；
 - `obj/packages` 下的 NuGet 还原缓存；
-- 临时 `_out/`、`_staging/`、头脑风暴目录；
-- 游戏存档、凭据和个人数据；
-- C#、PowerShell、JavaScript、批处理和工程文件中的注释。
+- 临时 `_out/`、`_staging/` 目录；
+- 游戏存档、凭据和个人数据。
 
-### 说明
+## 说明
 
 - `bin/obj` 是原样复制，可能保留原构建机器的绝对路径；
 - 本仓库是参考/分发快照，不是官方发布渠道；
