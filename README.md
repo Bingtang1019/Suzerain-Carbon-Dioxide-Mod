@@ -20,15 +20,34 @@ copied. This README is the repository guide.
 Oikonomia is a **BepInEx 6 (IL2CPP) plugin** for Suzerain. It changes rules
 through the game's own variable system; it does not replace game files.
 
-**1. Removes the presidential decree cap**
+**1. Dynamic presidential decree limit (administrative capacity)**
 
-- Vanilla limits a run to **3 decrees**.
-- Oikonomia makes the limit configurable; default **500** (effectively
-  unlimited).
-- Also applies to the parliamentary acts panel, with an optional exclusion list.
-- Hides the now-meaningless page dots and the hard-coded “you may choose 3”
-  subtitle.
-- Config changes hot-reload in about one second.
+Vanilla limits a run to **3 decrees**. Since 2.4.0 Oikonomia no longer just
+raises that number to a fixed value: the limit is calculated from the
+government's administrative capacity when the panel opens, then cached for
+that panel session.
+
+```text
+limit = base 4
+      + 1 per ministry with an increased budget          (up to +4)
+      + 2 when all four ministries are funded            (+2)
+      + 1 when the economy is Growing (from turn 8)
+      + 1 when the constitution reform passed with 225 votes
+      + 2 during a state of emergency
+      - 2 when any major crisis is active
+      - 1 while the Corruption situation is active
+      - 1 while nationwide peaceful protests are active  (from turn 8)
+      - 2 while the nationwide armed revolt is active    (from turn 8)
+      floor 2, no upper limit
+```
+
+The exact formula, thresholds and even the Lua variable names are configurable
+under `[Decrees]` / `[Decrees.Vars]`. Set `[Decrees] DynamicLimit = false` to
+fall back to the fixed `[General] MaxDecrees` value (default 500).
+
+It also applies to the parliamentary acts panel, with an optional exclusion
+list, and hides the now-meaningless page dots and the hard-coded “you may
+choose 3” subtitle. Config changes hot-reload in about one second.
 
 **2. Adds end-of-turn economy settlements**
 
@@ -109,7 +128,12 @@ changes** (automatic `.bak`) → reload the save in game.
 ```ini
 [General]
 Enabled = true
-MaxDecrees = 500
+MaxDecrees = 500          # fallback / 回退值；DynamicLimit=false 时使用
+
+[Decrees]
+DynamicLimit = true       # administrative capacity / 行政能力
+LimitBase = 4
+LimitFloor = 2
 
 [Economy]
 Enabled = true
@@ -186,13 +210,31 @@ Excluded:
 Oikonomia 是 Suzerain 的 **BepInEx 6（IL2CPP）插件**，通过游戏自己的变量系统
 改规则，不替换游戏文件。
 
-**1. 解除总统令上限**
+**1. 动态总统令上限（行政能力）**
 
-- 原版一局最多签 **3** 个总统令；
-- 本模组把上限变成可配置，默认 **500**（等效无限）；
-- 同样作用于法案面板，可配置排除；
-- 隐藏原版底部“上限数量”的页码点位，以及写死的“最多选择 3 个”副标题；
-- 改配置约 1 秒热重载。
+原版一局最多签 **3** 个总统令。自 2.4.0 起，Oikonomia 不是简单把上限改成
+固定值，而是按**政府行政能力**在面板打开时计算一次并缓存：
+
+```text
+上限 = 基数 4
+     + 每增加一个部门的预算 ×1            （最多 +4）
+     + 四个部门预算全部增加                （额外 +2）
+     + T8 起经济状态为「增长」             （+1）
+     + 宪法改革以 225 票通过议会           （+1）
+     + 开启紧急状态                       （+2）
+     − 触发任一重大危机                   （−2）
+     − 存在「腐败」词条                   （−1）
+     − T8 起仍有全国和平抗议              （−1）
+     − T8 起仍有全国武装起义              （−2）
+     下限 2，上限不限
+```
+
+公式、门槛和每一项的 Lua 变量名都在 cfg 的 `[Decrees]` / `[Decrees.Vars]`
+里，可热改。把 `[Decrees] DynamicLimit = false` 才会退回固定的
+`[General] MaxDecrees`（默认 500）。
+
+它同样作用于法案面板，可配置排除；并隐藏原版底部“上限数量”的页码点位和
+写死的“最多选择 3 个”副标题。改配置约 1 秒热重载。
 
 **2. 每回合经济结算**
 
@@ -270,7 +312,12 @@ Oikonomia 是 Suzerain 的 **BepInEx 6（IL2CPP）插件**，通过游戏自己�
 ```ini
 [General]
 Enabled = true
-MaxDecrees = 500
+MaxDecrees = 500          # fallback / 回退值；DynamicLimit=false 时使用
+
+[Decrees]
+DynamicLimit = true       # administrative capacity / 行政能力
+LimitBase = 4
+LimitFloor = 2
 
 [Economy]
 Enabled = true
