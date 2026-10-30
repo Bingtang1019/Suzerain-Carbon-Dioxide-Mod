@@ -212,8 +212,7 @@ Oikonomia 是 Suzerain 的 **BepInEx 6（IL2CPP）插件**，通过游戏自己�
 
 **1. 动态总统令上限（行政能力）**
 
-原版一局最多签 **3** 个总统令。自 2.4.0 起，Oikonomia 不是简单把上限改成
-固定值，而是按**政府行政能力**在面板打开时计算一次并缓存：
+原版一局最多签 **3** 个总统令。自 2.4.0 起，Oikonomia 开始按**政府行政能力**计算：
 
 ```text
 上限 = 基数 4
@@ -257,7 +256,7 @@ Oikonomia 是 Suzerain 的 **BepInEx 6（IL2CPP）插件**，通过游戏自己�
 
 ### Suzerain-JSON Injector —— 外部存档修改器
 
-它**不是游戏内模组**，而是一个 Windows GUI/CLI 修改器：读取 Suzerain 存档、修改
+它是一个 Windows GUI/CLI 修改器：可以读取 Suzerain 存档、修改
 数值后写回，写入前自动备份 `.bak`。
 
 主要能力：
